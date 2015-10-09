@@ -38,7 +38,7 @@ session_start();
 		<nav>
 			<ul id="main-nav" class="clearfix">
 				<li><a href="Index.php">Inicio</a></li>
-				<li><a onclick="Mostrar('MostrarLista')" >Lista de Pedidos</a></li> 
+				<li><a  style="cursor:pointer" onclick="Mostrar('MostrarLista')" >Lista de Pedidos</a></li> 
 				
 			
 			</ul>

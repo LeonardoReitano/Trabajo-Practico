@@ -2,6 +2,7 @@
 
 function modificar(idParametro)
 {
+	Mostrar("MostrarAlta");
 	var funcionAjax=$.ajax({
 		url:"nexo.php",
 		type:"post",
@@ -11,7 +12,8 @@ function modificar(idParametro)
 		}
 	});
 	funcionAjax.done(function(retorno){
-		console.log(retorno);
+		//console.log(retorno);
+		alert("FCDfsdfs");
 		var clie =JSON.parse(retorno);
 		$("#idPedido").val(clie.id);
 		$("#Nombre").val(clie.nombre);
@@ -23,7 +25,7 @@ function modificar(idParametro)
 	funcionAjax.fail(function(retorno){	
 		alert("No se modifico");
 	});	
-	Mostrar("MostrarFormMod");
+	
 }
 
 

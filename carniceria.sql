@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-09-2015 a las 02:58:47
+-- Tiempo de generación: 09-10-2015 a las 21:41:56
 -- Versión del servidor: 5.6.21
 -- Versión de PHP: 5.6.3
 
@@ -20,6 +20,30 @@ SET time_zone = "+00:00";
 -- Base de datos: `carniceria`
 --
 
+DELIMITER $$
+--
+-- Procedimientos
+--
+CREATE DEFINER=`root`@`localhost` PROCEDURE `alta`(IN `nom` VARCHAR(25), IN `ape` VARCHAR(25), IN `tele` INT(10), IN `domi` VARCHAR(40), IN `pedi` VARCHAR(40))
+    NO SQL
+INSERT into clientes (Nombre,Apellido,Telefono,Domicilio,Pedido)values(nom,ape,tele,domi,pedi)$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `borrar`(IN `paramid` INT)
+    NO SQL
+delete from clientes where id=paramid$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `modificar`(IN `paramid` INT, IN `nom` VARCHAR(25), IN `ape` VARCHAR(25), IN `tel` INT(10), IN `dom` VARCHAR(40), IN `pedi` VARCHAR(40))
+    NO SQL
+update clientes
+				set nombre=nom,
+				apellido=ape,
+				telefono=tel,
+				domicilio=dom,
+				pedido=pedi 
+				WHERE id=paramid$$
+
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -33,18 +57,17 @@ CREATE TABLE IF NOT EXISTS `clientes` (
   `Telefono` int(10) DEFAULT NULL,
   `Domicilio` varchar(40) COLLATE latin1_spanish_ci NOT NULL,
   `Pedido` varchar(40) COLLATE latin1_spanish_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `clientes`
 --
 
 INSERT INTO `clientes` (`Id`, `Nombre`, `Apellido`, `Telefono`, `Domicilio`, `Pedido`) VALUES
-(1, 'Leonardo', 'Reitano', 42516819, 'Rocha 1157', '2kg Milanesas'),
-(2, 'Leonardo', 'Reitano', 42516819, 'Rocha 1156', 'Milanesas'),
-(3, 'Leonardo', 'Reitano', 42516819, 'Rocha 1156', 'Milanesas'),
-(4, 'Daniel', 'Reitano', 42516879, 'CXerrito', 'asdasdsadsa'),
-(5, 'Silvana', 'Reitano', 45216819, 'Mointevideo 120', '2kg Asado');
+(44, 'Reina', 'Perez', 42523366, 'Ituzaingo', '2kgMilanesas'),
+(45, 'Leo', 'Reitano', 12121212, 'sdfsdfsd', 'dsfsdfsd'),
+(46, 'fdfsd', 'fdsfdsfsd', 32333, 'sdfdsf', 'sdfsdf'),
+(47, 'sdfdsf', 'dsfdsf', 33434, 'dfsf', 'dsfdsfds');
 
 -- --------------------------------------------------------
 
@@ -89,7 +112,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=48;
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
