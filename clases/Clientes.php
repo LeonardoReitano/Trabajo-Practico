@@ -57,16 +57,18 @@ class Cliente
 	
 	 public function ModificarClienteParametros()
 	 {
+
+	 		 	
 			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-			$consulta =$objetoAccesoDato->RetornarConsulta("CALL modificar(':paramid',':nom',':ape',':tele',':dom',':pedi')");
+			$consulta =$objetoAccesoDato->RetornarConsulta("CALL modificar(:paramid,:nombre,:apel,:telef,:domi,:pedid)");
 	
 				
 			$consulta->bindValue(':paramid',$this->id, PDO::PARAM_INT);
-			$consulta->bindValue(':nom',$this->nombre, PDO::PARAM_STR);
-			$consulta->bindValue(':ape', $this->apellido, PDO::PARAM_STR);
-			$consulta->bindValue(':tele', $this->telefono, PDO::PARAM_INT);
-			$consulta->bindValue(':dom', $this->domicilio, PDO::PARAM_STR);
-			$consulta->bindValue(':pedi', $this->pedido, PDO::PARAM_STR);
+			$consulta->bindValue(':nombre',$this->nombre, PDO::PARAM_STR);
+			$consulta->bindValue(':apel', $this->apellido, PDO::PARAM_STR);
+			$consulta->bindValue(':telef', $this->telefono, PDO::PARAM_INT);
+			$consulta->bindValue(':domi', $this->domicilio, PDO::PARAM_STR);
+			$consulta->bindValue(':pedid', $this->pedido, PDO::PARAM_STR);
 
 			return $consulta->execute();
 

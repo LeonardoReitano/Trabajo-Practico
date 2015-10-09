@@ -12,8 +12,8 @@ function modificar(idParametro)
 		}
 	});
 	funcionAjax.done(function(retorno){
-		//console.log(retorno);
-		alert("FCDfsdfs");
+		console.log(retorno);
+
 		var clie =JSON.parse(retorno);
 		$("#idPedido").val(clie.id);
 		$("#Nombre").val(clie.nombre);
