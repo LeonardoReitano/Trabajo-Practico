@@ -1,14 +1,31 @@
 <?php 
 require_once("clases/AccesoDatos.php");
 require_once("clases/Clientes.php");
+require_once("clases/usuario.php");
 
 $queHago=$_POST['queHacer'];
 
 switch ($queHago) {
 
+
+case 'GuardarUsuario':	
+			$usuario = new usuario();
+			$usuario->id=$_POST['id'];
+			$usuario->nombre=$_POST['nombre'];
+			$usuario->contraseña=$_POST['contrasena'];
+			$usuario->email=$_POST['email'];		
+			$cantidad=$usuario->InsertarUsuario();	            
+            echo true;
+            break;
 case 'MostrarFormMod':
 		include("formModificar.php");
 		break;
+case 'VerEnMapa':
+			include("formMapaGoogle.php");
+			break;	
+case 'Registro':
+				include("Registro de Usuario.php");
+					break;	
 case 'MostrarAlta':
 		include("PedidoDeClientes.php");
 		break;

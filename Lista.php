@@ -1,27 +1,8 @@
-
- <html>
- <head> 	 
-        
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="estilo.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script type="text/javascript" src="js/funcionesABM.js" ></script> 
-  <script type="text/javascript" src="js/funcionesAjax.js"></script>
-
-
- 	<title>Lista</title>
- </head>
- <body>
 <?php
 session_start();
 if(isset($_SESSION['usuarioActual']))
 {
 
-}
-else
-{
-	header("location:index.php");
-}
 
                            
 require_once("clases/AccesoDatos.php");
@@ -53,8 +34,20 @@ foreach ($Array as $cliente)
 
       ?>
 <a class="btn btn-info" href="index.php">Menu principal</a>
- </body>
- </html>
+
+
+
+<?php 
+}
+else
+{
+  header("HTTP/1.0 500 No autorizado");
+}
+
+ ?>
+
+
+
 
  
 

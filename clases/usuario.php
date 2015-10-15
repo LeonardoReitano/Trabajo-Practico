@@ -1,8 +1,10 @@
 <?php
 	class usuario
 	{
+        public $id;
 		public $nombre;
 		public $contraseña;
+         public $email;
 		
         public function GetNombre()
         {
@@ -43,7 +45,18 @@
         }  
 
 
-
+ public function InsertarUsuario()
+     {
+                $objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+                $consulta =$objetoAccesoDato->RetornarConsulta("INSERT into usuarios (nombre,contraseña,email)values(:paramNombre,:paramContraseña,:paramEmail)");
+               $consulta->bindValue(':paramId',$this->id, PDO::PARAM_INT);
+                $consulta->bindValue(':paramNombre',$this->nombre, PDO::PARAM_STR);
+                $consulta->bindValue(':paramContraseña', $this->apellido, PDO::PARAM_STR);
+                $consulta->bindValue(':paramEmail', $this->legajo, PDO::PARAM_STR);
+              
+                $consulta->execute();       
+                return $objetoAccesoDato->RetornarUltimoIdInsertado();
+     }
 
 
 
@@ -51,22 +64,7 @@
 
 
 /*
-  public function InsertarUsuario()
-     {
-                $objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-                $consulta =$objetoAccesoDato->RetornarConsulta("INSERT into usuario (nombre,apellido,legajo,direccion,fecha,mail,foto,clave)values(:paramNombre,:paramApellido,:paramLegajo,:paramDireccion,:paramFecha,:paramMail,:paramFoto,:paramClave)");
-               $consulta->bindValue(':paramId',$this->id, PDO::PARAM_INT);
-                $consulta->bindValue(':paramNombre',$this->nombre, PDO::PARAM_INT);
-                $consulta->bindValue(':paramApellido', $this->apellido, PDO::PARAM_STR);
-                $consulta->bindValue(':paramLegajo', $this->legajo, PDO::PARAM_STR);
-                $consulta->bindValue(':paramDireccion', $this->direccion, PDO::PARAM_STR);
-                $consulta->bindValue(':paramFecha', $this->fecha, PDO::PARAM_STR);
-                $consulta->bindValue(':paramMail', $this->mail, PDO::PARAM_STR);
-                $consulta->bindValue(':paramFoto', $this->foto, PDO::PARAM_STR);
-                $consulta->bindValue(':paramClave', $this->clave, PDO::PARAM_STR);
-                $consulta->execute();       
-                return $objetoAccesoDato->RetornarUltimoIdInsertado();
-     }*/
+ */
 
        
 

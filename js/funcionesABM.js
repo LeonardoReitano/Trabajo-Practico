@@ -1,3 +1,56 @@
+function registroUsuario()
+  {
+  			var id=$("#idUsuario").val();	
+			var nomusuario=$("#Nom").val();
+			var contraUsuario=$("#Contra").val();
+			var emailUsuario=$("#Email").val();
+	
+			var funcionAjax=$.ajax({url:"nexo.php",type:"POST",
+
+						data:
+						{
+							    queHacer:"GuardarUsuario",
+							    id:id,
+								nombre:nomusuario,
+								contrasena:contraUsuario,
+								email:emailUsuario					
+
+						}
+							});
+
+					funcionAjax.done(function(resultado){
+
+						console.log(resultado);	
+						alert("Usuario Registrado");
+
+					
+
+						//Mostrar('RegistrarInvitado');														
+					});
+						
+							
+					funcionAjax.fail(function(resultado){	
+						alert("Error en el registro");
+		
+					});				
+				
+
+
+  }
+
+
+
+
+
+      function modificarUsuario() 
+      {
+      
+      }
+
+
+
+
+
 
 
 function modificar(idParametro)

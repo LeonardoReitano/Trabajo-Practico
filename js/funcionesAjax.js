@@ -9,10 +9,13 @@ function Mostrar(queMostrar)
 		data:{queHacer:queMostrar}
 	});
 	funcionAjax.done(function(retorno){
+		console.log(retorno);
 		$("#content").html(retorno);
 		
 	});
 	funcionAjax.fail(function(retorno){
+		console.log(retorno);
+		alert("No registrado");
 		$("#principal").html(":(");
 		
 	});

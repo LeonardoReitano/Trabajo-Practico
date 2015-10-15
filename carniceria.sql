@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-10-2015 a las 21:41:56
+-- Tiempo de generación: 15-10-2015 a las 17:02:43
 -- Versión del servidor: 5.6.21
 -- Versión de PHP: 5.6.3
 
@@ -65,7 +65,7 @@ CREATE TABLE IF NOT EXISTS `clientes` (
 
 INSERT INTO `clientes` (`Id`, `Nombre`, `Apellido`, `Telefono`, `Domicilio`, `Pedido`) VALUES
 (44, 'Reina', 'Perez', 42523366, 'Ituzaingo', '2kgMilanesas'),
-(45, 'Leo', 'Reitano', 12121212, 'sdfsdfsd', 'dsfsdfsd'),
+(45, 'modifica', 'Reitano', 12121212, 'sdfsdfsd', 'dsfsdfsd'),
 (46, 'fdfsd', 'fdsfdsfsd', 32333, 'sdfdsf', 'sdfsdf'),
 (47, 'sdfdsf', 'dsfdsf', 33434, 'dfsf', 'dsfdsfds');
 
@@ -78,15 +78,16 @@ INSERT INTO `clientes` (`Id`, `Nombre`, `Apellido`, `Telefono`, `Domicilio`, `Pe
 CREATE TABLE IF NOT EXISTS `usuarios` (
 `Id` int(11) NOT NULL,
   `Nombre` varchar(25) COLLATE latin1_spanish_ci NOT NULL,
-  `Contraseña` varchar(25) COLLATE latin1_spanish_ci NOT NULL
+  `Contraseña` varchar(25) COLLATE latin1_spanish_ci NOT NULL,
+  `Email` varchar(40) COLLATE latin1_spanish_ci NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`Id`, `Nombre`, `Contraseña`) VALUES
-(1, 'Leo', '123');
+INSERT INTO `usuarios` (`Id`, `Nombre`, `Contraseña`, `Email`) VALUES
+(1, 'Leo', '123', '');
 
 --
 -- Índices para tablas volcadas

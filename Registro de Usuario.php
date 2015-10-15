@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -6,7 +5,7 @@
 
 
 
-<title>Pedido</title>
+<title>Registro de Usuario</title>
 
 <!-- main css -->
 <link href="style.css" rel="stylesheet" type="text/css">
@@ -18,42 +17,31 @@
 
   <script type="text/javascript" src="js/funcionesABM.js" ></script> 
   <script type="text/javascript" src="js/funcionesAjax.js"></script>
-
-
-
-
-
 </head>
+
 <body>
-	 <form  onsubmit="alta(); return false">
+	 <form  onsubmit="registroUsuario(); return false">
 
 		<table class='table' >
 			
 			<tr> 
 		
 				<td>Nombre</td>
-				<td>Apellido</td>
-				<td>Telefono</td>
-				<td>Domicilio</td>
-				<td>Pedido</td>
-				
+				<td>Contraseña</td>
+				<td>Email</td>
+							
 
 			</tr>
 			<tr>
-				<td><input type="text" name="Nombre" id="Nombre"></td>
-				<td><input type="text" name="Apellido" id="Apellido" ></td>
-				<td><input type="number" name="Telefono" id="Telefono"></td>
-				<td><input type="text"  size="40"  width="70" name="Domicilio" id="Domicilio"></td>
-				<td><input type="text" size="40"  width="70" name="Pedido" id="Pedido"></td>
-				
-
+				<td><input type="Nom" id="Nom" name="Nom"></td>
+				<td><input type="Contra" id="Contra" name="Contra"></td>
+				<td><input type="Email" id="Email" name="Email"></td>
 			</tr>
 			<tr align="right" >			
-				<td colspan="5" ><input type="submit" value='Aceptar' class="MiBotonUTNPro" ></td>
+				<td colspan="5" ><input type="submit" value='Registrar Usuario' class="MiBotonUTNPro" ></td>
 					
 			</tr>
-				<input readonly   type="hidden"    id="idPedido">
-			
+			<input readonly   type="hidden"    id="idUsuario">
 			
 		</table>
 	</form>
