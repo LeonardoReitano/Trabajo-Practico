@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-10-2015 a las 17:02:43
+-- Tiempo de generación: 16-10-2015 a las 04:28:49
 -- Versión del servidor: 5.6.21
 -- Versión de PHP: 5.6.3
 
@@ -27,6 +27,11 @@ DELIMITER $$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `alta`(IN `nom` VARCHAR(25), IN `ape` VARCHAR(25), IN `tele` INT(10), IN `domi` VARCHAR(40), IN `pedi` VARCHAR(40))
     NO SQL
 INSERT into clientes (Nombre,Apellido,Telefono,Domicilio,Pedido)values(nom,ape,tele,domi,pedi)$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `altausuario`(IN `paramN` VARCHAR(25), IN `paramC` VARCHAR(25), IN `paramE` VARCHAR(40))
+    NO SQL
+INSERT into
+usuarios (Nombre,Contrasenia,Email) values (paramN,paramC,paramE)$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `borrar`(IN `paramid` INT)
     NO SQL
@@ -78,16 +83,18 @@ INSERT INTO `clientes` (`Id`, `Nombre`, `Apellido`, `Telefono`, `Domicilio`, `Pe
 CREATE TABLE IF NOT EXISTS `usuarios` (
 `Id` int(11) NOT NULL,
   `Nombre` varchar(25) COLLATE latin1_spanish_ci NOT NULL,
-  `Contraseña` varchar(25) COLLATE latin1_spanish_ci NOT NULL,
+  `Contrasenia` varchar(25) COLLATE latin1_spanish_ci NOT NULL,
   `Email` varchar(40) COLLATE latin1_spanish_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`Id`, `Nombre`, `Contraseña`, `Email`) VALUES
-(1, 'Leo', '123', '');
+INSERT INTO `usuarios` (`Id`, `Nombre`, `Contrasenia`, `Email`) VALUES
+(1, 'Leo', '123', ''),
+(2, 'Leo2', '123', 'leito.bernal@gmail.com'),
+(3, 'aaaaa', '111', 'leo@gmail.com');
 
 --
 -- Índices para tablas volcadas
@@ -118,7 +125,7 @@ MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=48;
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
