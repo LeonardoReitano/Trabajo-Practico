@@ -11,10 +11,10 @@ session_start();
 <title>Menu</title>
 
 
-<link href="style.css" rel="stylesheet" type="text/css">
-<link href="media-queries.css" rel="stylesheet" type="text/css">
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<link href="css/media-queries.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="estilo.css">
+<link rel="stylesheet" type="text/css" href="css/estilo.css">
  
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

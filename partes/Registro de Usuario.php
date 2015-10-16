@@ -8,10 +8,10 @@
 <title>Registro de Usuario</title>
 
 <!-- main css -->
-<link href="style.css" rel="stylesheet" type="text/css">
-<link href="media-queries.css" rel="stylesheet" type="text/css">
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<link href="css/media-queries.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="estilo.css">
+<link rel="stylesheet" type="text/css" href="css/estilo.css">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
@@ -33,8 +33,8 @@
 
 			</tr>
 			<tr>
-				<td><input type="Nom" id="Nom" name="Nom"></td>
-				<td><input type="Contra" id="Contra" name="Contra"></td>
+				<td><input type="text" id="Nom" name="Nom"></td>
+				<td><input type="password" id="Contra" name="Contra"></td>
 				<td><input type="Email" id="Email" name="Email"></td>
 			</tr>
 			<tr align="right" >			

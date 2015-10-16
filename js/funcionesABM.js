@@ -12,7 +12,7 @@ function registroUsuario()
 							    queHacer:"GuardarUsuario",
 							    id:id,
 								nombre:nomusuario,
-								contrasena:contraUsuario,
+								pass:contraUsuario,
 								email:emailUsuario					
 
 						}
@@ -22,6 +22,7 @@ function registroUsuario()
 
 						console.log(resultado);	
 						alert("Usuario Registrado");
+						
 
 					
 

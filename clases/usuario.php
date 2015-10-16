@@ -3,8 +3,8 @@
 	{
         public $id;
 		public $nombre;
-		public $contraseña;
-         public $email;
+		public $contrasenia;
+        public $email;
 		
         public function GetNombre()
         {
@@ -14,7 +14,7 @@
 
          public function getConstraeseña()
         {
-            return $this->contraseña;
+            return $this->contrasenia;
 
         }
 
@@ -36,7 +36,7 @@
 
 
             $resultado= usuario::TraerUsuarioPorNombre($nom); 
-            if($resultado[0]->nombre=$nom && $resultado[0]->contraseña=$contra)
+            if($resultado[0]->nombre=$nom && $resultado[0]->contrasenia=$contra)
                 return true;
             else
                 
@@ -48,15 +48,15 @@
  public function InsertarUsuario()
      {
                 $objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-                $consulta =$objetoAccesoDato->RetornarConsulta("INSERT into usuarios (nombre,contraseña,email)values(:paramNombre,:paramContraseña,:paramEmail)");
-               $consulta->bindValue(':paramId',$this->id, PDO::PARAM_INT);
+                $consulta =$objetoAccesoDato->RetornarConsulta("CALL altausuario(:paramNombre,:paramcontrasenia,:paramEmail)");
                 $consulta->bindValue(':paramNombre',$this->nombre, PDO::PARAM_STR);
-                $consulta->bindValue(':paramContraseña', $this->apellido, PDO::PARAM_STR);
-                $consulta->bindValue(':paramEmail', $this->legajo, PDO::PARAM_STR);
-              
+                $consulta->bindValue(':paramcontrasenia', $this->contrasenia, PDO::PARAM_STR);
+                $consulta->bindValue(':paramEmail', $this->email, PDO::PARAM_STR);              
                 $consulta->execute();       
                 return $objetoAccesoDato->RetornarUltimoIdInsertado();
      }
+
+
 
 
 
