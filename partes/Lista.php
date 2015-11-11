@@ -12,7 +12,7 @@ $Array=Cliente::TraerTodoLosClientes();
 echo"<table class='table' >
 <thead>
 <tr>
-<td></td><td></td><td>Nombre</td><td>Apellido</td><td>Telefono</td><td>Domicilio</td><td>Pedido</td>
+<td></td><td></td><td>Nombre</td><td>Apellido</td><td>Telefono</td><td>Domicilio</td><td>Pedido</td><td>Pago</td><td>Envio</td>
 </tr>
 </thead>
 <tbody>";
@@ -26,6 +26,8 @@ foreach ($Array as $cliente)
  <td>$cliente->telefono</td>
 <td>$cliente->domicilio</td>
 <td>$cliente->pedido</td>
+<td>$cliente->pago</td>
+<td>$cliente->envio</td>
 
 </tr> ";
 }         

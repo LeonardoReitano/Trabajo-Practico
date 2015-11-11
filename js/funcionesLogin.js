@@ -4,21 +4,24 @@
 
         	var elUsuario=$("#usuario").val();
         	var laClave=$("#pass").val();
-        	
+        	var recordar = $("#recordar").is(':checked');
        
 
         	var funcionAjax = $.ajax({url:"ValidarUsuario.php", type:"POST",
 					data:
 					{
 						usuario:elUsuario,
-						clave:laClave
+						clave:laClave,
+						recordarme:recordar
 						
 					}
 				});
 				
 				funcionAjax.done(function(resultado){
+					
 						if(resultado==1)
 						{
+
 							alert("Bienvenido");
 							window.location="index.php";
 

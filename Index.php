@@ -45,7 +45,8 @@ session_start();
 			<ul id="main-nav" class="clearfix">
 				<li><a href="Index.php">Inicio</a></li>
 				<li><a  style="cursor:pointer" onclick="Mostrar('MostrarLista')" >Lista de Pedidos</a></li>
-				<li><a  style="cursor:pointer" onclick="VerEnMapa('Buenos Aires,Mitre 750')" >Mapa</a></li> 
+				<li><a  style="cursor:pointer" onclick="VerEnMapa()">Mapa</a></li> 
+				<li><a  style="cursor:pointer" onclick="Mostrar('MostrarListaU')" >Lista de Usuarios</a></li>
 				
 			
 			</ul>
@@ -59,7 +60,7 @@ session_start();
 	</header>
 	<!-- /#header -->
 	
-	<div id="content">
+	<div id="content" aling="left">
 
 	
 		
@@ -82,6 +83,8 @@ session_start();
 							 echo $_SESSION['usuarioActual']; 
 					}?>">
 						<input type="password" id="pass" name="pass" placeholder="Contraseña">
+						<br>
+						<input type="checkbox" id="recordar">Recordame
 						<input type="button" id="registro" name="registro" value="Login" class="MiBotonUTN" onclick="login()">
 						<input type="button" id="logout" name="logout" value="Logout" onclick="logout()" class="MiBotonUTN">  
 						<input type="button" id="Registrarme" name="Registrarme" value="Registrarme" onclick="Mostrar('Registro')" class="MiBotonUTN">  
@@ -91,7 +94,7 @@ session_start();
 			
 			</ul>
 		</section>
-		<!-- /.widget -->
+		
 
 		<!--<section class="widget clearfix">
 			<h4 class="widgettitle">Panel </h4> -->

@@ -2,6 +2,7 @@
 require_once("clases/AccesoDatos.php");
 require_once("clases/Clientes.php");
 require_once("clases/usuario.php");
+require_once("clases/Encriptador.php");
 
 
 $queHago=$_POST['queHacer'];
@@ -9,15 +10,33 @@ $queHago=$_POST['queHacer'];
 switch ($queHago) {
 
 
+
+case 'modificarU':
+$usuario = usuario::TraerUsuarioPorId($_POST['id']);		
+			echo json_encode($usuario);
+	break;
+
+case 'MostrarListaU':
+	include("partes/ListaU.php");
+	break;
 case 'GuardarUsuario':	
+			$encriptada = Encriptadora::Encriptador($_POST['pass']);
 			$usuario = new usuario();
-			$usuario->id=$_POST['id'];
-			$usuario->nombre=$_POST['nombre'];
-			$usuario->contrasenia=$_POST['pass'];
-			$usuario->email=$_POST['email'];		
-			$cantidad=$usuario->InsertarUsuario();	            
+			$usuario->Id=$_POST['id'];
+			$usuario->Nombre=$_POST['nombre'];
+			$usuario->Contrasenia=$encriptada;
+			$usuario->Email=$_POST['email'];
+			$usuario->Foto=$_POST['foto'];
+			$cantidad=$usuario->GuardarUsuario();	            
             echo true;
             break;
+
+ case 'borrarU':
+	            $usuario = new usuario();
+				$usuario->Id=$_POST['id'];
+				$cantidad=$usuario->BorrarUsuario();
+				echo $cantidad;
+            	break;
 case 'MostrarFormMod':
 		include("partes/formModificar.php");
 		break;
@@ -45,6 +64,7 @@ case 'MostrarAlta':
 
 		break;
 	case 'GuardarCliente':
+	
 			$cliente = new Cliente();
 			$cliente->id=$_POST['id'];
 			$cliente->nombre=$_POST['nombre'];
@@ -52,6 +72,10 @@ case 'MostrarAlta':
 			$cliente->telefono=$_POST['telefono'];
 			$cliente->domicilio=$_POST['domicilio'];
 			$cliente->pedido=$_POST['pedido'];
+			
+			$cliente->pago=$_POST['pag'];
+			$cliente->envio=$_POST['env'];
+
 			$cantidad=$cliente->GuardarCliente();	            
             echo true;
 

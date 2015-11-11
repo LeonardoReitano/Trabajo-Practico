@@ -1,10 +1,43 @@
+	function subirFoto(formData){
+			
+			$.ajax({
+			    url: 'partes/subirFoto.php',  
+			    type: 'POST',
+			    data: formData,			    
+			    cache: false,//Para subir archivos via ajax
+			    contentType: false,//Para subir archivos via ajax
+			    processData: false,//Para subir archivos via ajax
+			    beforeSend: function(){
+			        $("#mensaje").html("Subiendo imagen");			          
+			    },
+			    success: function(data){
+			    	 console.log(data);
+			        
+			        if(data == "Correcto")
+			        	alert("Imagen subida correctamente");
+			        	else
+			        	alert(data);
+			        
+			    },
+			    error: function(data){
+			    	console.log(data);
+			        alert("Error al subir imagen");			        
+			    }
+			});
+		}
+
+
 function registroUsuario()
   {
   			var id=$("#idUsuario").val();	
 			var nomusuario=$("#Nom").val();
 			var contraUsuario=$("#Contra").val();
 			var emailUsuario=$("#Email").val();
-	
+			var foto = $("#Foto")[0].files[0].name;
+
+			var formData = new FormData($("#formUsuario")[0]);
+			
+
 			var funcionAjax=$.ajax({url:"nexo.php",type:"POST",
 
 						data:
@@ -13,15 +46,19 @@ function registroUsuario()
 							    id:id,
 								nombre:nomusuario,
 								pass:contraUsuario,
-								email:emailUsuario					
+								email:emailUsuario,
+								foto:foto					
 
 						}
 							});
 
 					funcionAjax.done(function(resultado){
+						console.log(resultado);
 
-						console.log(resultado);	
-						alert("Usuario Registrado");
+						subirFoto(formData);				
+						Mostrar('MostrarIndex');
+						/*/console.log(resultado);	
+						alert("Usuario Registrado");*/
 						
 
 					
@@ -43,8 +80,64 @@ function registroUsuario()
 
 
 
-      function modificarUsuario() 
+      function modificarUsuario(idParametro) 
       {
+
+      	Mostrar("Registro");
+		var funcionAjax=$.ajax({
+		url:"nexo.php",
+		type:"post",
+		data:{
+			queHacer:"modificarU",
+			id:idParametro	
+		}
+	});
+	funcionAjax.done(function(retorno){
+		//console.log(retorno);
+
+		var usuario =JSON.parse(retorno);
+
+			$("#idUsuario").val(usuario.Id);	
+			$("#Nom").val(usuario.Nombre);
+			$("#Contra").val(usuario.Contrsenia);
+			$("#Email").val(usuario.Email);
+			$("#Foto").attr("src", "fotos/"+usuario.foto)
+	});
+	funcionAjax.fail(function(retorno){	
+		//console.log(retorno);
+		alert("No se modifico");
+	});	
+      
+      }
+
+
+
+
+
+ function BorrarUsuario(idParametro) 
+      {
+
+      	var funcionAjax=$.ajax({
+		url:"nexo.php",
+		type:"post",
+		data:{
+			queHacer:"borrarU",
+			id:idParametro	
+		}
+	});
+	funcionAjax.done(function(retorno){
+		console.log(retorno);//Salta error usarlo
+		//(Mostrar("MostrarGrilla");
+			alert("Exito al borrar");
+			Mostrar("MostrarListaU");
+		//$("#informe").html("cantidad de eliminados "+ retorno);	
+		
+	});
+	funcionAjax.fail(function(retorno){	
+		alert("Error");
+
+		$("#informe").html(retorno.responseText);	
+	});	
       
       }
 
@@ -127,6 +220,8 @@ function alta()
 			var teleClie=$("#Telefono").val();
 			var domiClie=$("#Domicilio").val();
 			var pedidoClie=$("#Pedido").val();
+		   	var pago=$('input:radio[name=Pago]:checked').val();
+        	var envio=$("#Envio").val();
 			
 			
 			if(!validarTexto())
@@ -141,7 +236,9 @@ function alta()
 								apellido:apeClie,
 								telefono:teleClie,
 								domicilio:domiClie,
-								pedido:pedidoClie 						
+								pedido:pedidoClie,
+								pag:pago,
+								env:envio 						
 
 						}
 							});

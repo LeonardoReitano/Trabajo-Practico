@@ -1,7 +1,18 @@
-function VerEnMapa(punto)
+function VerEnMapa()
 {    
-    var punto = punto +", Argentina";
+
+      var prov=$("#Provincia").val();
+      var loc=$("#Localidad").val();
+      var direc=$("#Direccion").val();
+       
+if (prov!=null)
+ {
+    var punto = prov+","+loc+","+","+direc+", Argentina";
     console.log(punto);
+ }
+ else 
+  var punto="Buenos Aires,Avellaneda,Mitre 750,Argentina";
+  
     var funcionAjax=$.ajax({
     url:"nexo.php",
     type:"post",
@@ -12,7 +23,7 @@ function VerEnMapa(punto)
     funcionAjax.done(function(retorno){
     $("#content").html(retorno);
         $("#punto").val(punto);
-         $("#id").val(id);
+       //  $("#id").val(id);
     
   });
 }

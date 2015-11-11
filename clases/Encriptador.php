@@ -1,5 +1,9 @@
 <?php 
 
+class Encriptadora
+{
+	
+
 
 public static function Encriptador($string)
 {
@@ -8,4 +12,8 @@ public static function Encriptador($string)
 
 
 }
+}
+
+
+
  ?>

@@ -36,16 +36,27 @@
 				<td>Telefono</td>
 				<td>Domicilio</td>
 				<td>Pedido</td>
+				<td>Pago</td>
+				<td>Envio</td>
+
 				
 
 			</tr>
 			<tr>
-				<td><input type="text" name="Nombre" id="Nombre"></td>
+				<td><input type="text" autofocus="" name="Nombre" id="Nombre" title="cualquiernombre" required minlegth="4" pattern="[a-zA-Z]*+"></td>
 				<td><input type="text" name="Apellido" id="Apellido" ></td>
 				<td><input type="number" name="Telefono" id="Telefono"></td>
-				<td><input type="text"  size="40"  width="70" name="Domicilio" id="Domicilio"></td>
-				<td><input type="text" size="40"  width="70" name="Pedido" id="Pedido"></td>
-				
+				<td><input type="text"   name="Domicilio" id="Domicilio"></td>
+				<td><textarea  name="Pedido" id="Pedido"></textarea></td>
+				<td><input type="radio" name="Pago" value="Efectivo" checked>Efectivo
+  					
+  					 <input type="radio" name="Pago" value="Tarjeta">Tarjeta</td>
+				<td>
+					<select id="Envio">
+					  <option value="EnvioD">Domicilio</option>
+					  <option value="Retira">Retira</option>
+					</select>			
+				</td>
 
 			</tr>
 			<tr align="right" >			

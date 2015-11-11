@@ -20,7 +20,7 @@
 </head>
 
 <body>
-	 <form  onsubmit="registroUsuario(); return false">
+	 <form id="formUsuario" onsubmit="registroUsuario(); return false">
 
 		<table class='table' >
 			
@@ -29,6 +29,7 @@
 				<td>Nombre</td>
 				<td>Contraseña</td>
 				<td>Email</td>
+				<td>Foto</td>
 							
 
 			</tr>
@@ -36,6 +37,7 @@
 				<td><input type="text" id="Nom" name="Nom"></td>
 				<td><input type="password" id="Contra" name="Contra"></td>
 				<td><input type="Email" id="Email" name="Email"></td>
+				<td><input type="file" id="Foto" name="Foto"></td>
 			</tr>
 			<tr align="right" >			
 				<td colspan="5" ><input type="submit" value='Registrar Usuario' class="MiBotonUTNPro" ></td>
